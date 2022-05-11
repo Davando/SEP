@@ -42,9 +42,13 @@ FROM Production.Product
 WHERE Color IS NOT NULL
 
 -- Question 6
-SELECT Name, Color
+--SELECT Name, Color
+--FROM Production.Product
+--WHERE Name LIKE '%Crankarm' OR Name LIKE 'Chainring%'
+
+SELECT TOP(6) Name, Color
 FROM Production.Product
-WHERE Name LIKE '%Crankarm' OR Name LIKE 'Chainring%'
+WHERE Color IS NOT NULL
 
 -- Question 7
 SELECT ProductID, Name
@@ -74,6 +78,6 @@ WHERE Name LIKE 'SPO[^k]%'
 ORDER BY Name ASC
 
 -- Question 12
-SELECT DISTINCT ISNULL(ProductSubcategoryID,1) [ProductSubcategoryID], ISNULL(Color, 'black') [Color]
+SELECT DISTINCT ISNULL(ProductSubcategoryID,'0') [ProductSubcategoryID], ISNULL(Color, 'n/a') [Color]
 FROM Production.Product
 
